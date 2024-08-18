@@ -1,12 +1,10 @@
-package com.example.harrypotter.domain.model
-
-import com.example.harrypotter.data.remote.dto.Wand
+package com.example.harrypotter.data.remote.dto
 
 data class CharacterItem(
     val actor: String,
     val alive: Boolean,
-    val alternateActors: List<String>,
-    val alternateNames: List<String>,
+    val alternate_actors: List<String>,
+    val alternate_names: List<String>,
     val ancestry: String,
     val dateOfBirth: String,
     val eyeColour: String,

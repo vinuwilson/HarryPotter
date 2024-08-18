@@ -1,6 +1,6 @@
 package com.example.harrypotter
 
-import com.example.harrypotter.domain.model.CharacterItem
+import com.example.harrypotter.data.remote.dto.CharacterItem
 import com.example.harrypotter.domain.repository.CharacterListRepository
 import com.example.harrypotter.domain.usecase.GetAllCharactersUseCase
 import com.example.harrypotter.utils.BaseUnitTest

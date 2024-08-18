@@ -1,8 +1,8 @@
 package com.example.harrypotter
 
+import com.example.harrypotter.data.remote.dto.CharacterItem
 import com.example.harrypotter.data.remote.repository.CharacterListRepositoryImpl
-import com.example.harrypotter.data.remote.repository.CharacterListService
-import com.example.harrypotter.domain.model.CharacterItem
+import com.example.harrypotter.data.remote.repository.RemoteCharacterListService
 import com.example.harrypotter.utils.BaseUnitTest
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
@@ -17,7 +17,7 @@ import org.mockito.Mockito.mock
 class CharacterListRepositoryShould : BaseUnitTest() {
 
     private lateinit var characterListRepository: CharacterListRepositoryImpl
-    private val service: CharacterListService = mock()
+    private val service: RemoteCharacterListService = mock()
     private val characterItem: List<CharacterItem> = mock()
     private val expected = Result.success(characterItem)
     private val exception = RuntimeException("Something went wrong")

@@ -4,3 +4,8 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 object CharacterList
+
+@Serializable
+data class CharacterDetails(
+    val characterId : String
+)

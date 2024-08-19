@@ -31,7 +31,6 @@ import androidx.navigation.NavHostController
 import com.example.harrypotter.R
 import com.example.harrypotter.presenter.character_list.components.SingleCharacterItem
 import com.example.harrypotter.presenter.navigation.CharacterDetails
-import com.example.harrypotter.presenter.navigation.SearchScreenView
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

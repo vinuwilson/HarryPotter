@@ -37,7 +37,7 @@ import com.example.harrypotter.util.HouseColor
 @Composable
 fun SingleCharacterItem(
     characterItem: CharacterItem,
-    onItemClick:(String) -> Unit
+    onItemClick: (String) -> Unit
 ) {
 
     Card(
@@ -60,7 +60,7 @@ fun SingleCharacterItem(
                 AsyncImage(
                     model = ImageRequest.Builder(LocalContext.current)
                         .data(
-                            characterItem.image.ifEmpty { R.drawable.harry_potter }
+                            characterItem.image?.ifEmpty { R.drawable.harry_potter }
                         )
                         .placeholder(R.drawable.harry_potter)
                         .crossfade(true)
@@ -80,28 +80,24 @@ fun SingleCharacterItem(
                     .fillMaxSize()
             ) {
                 Text(
-                    text = characterItem.name,
+                    text = characterItem.name ?: "",
                     color = MaterialTheme.colorScheme.onBackground,
                     fontSize = dimensionResource(id = R.dimen.large_font_size).value.sp,
                     fontWeight = FontWeight.Bold
                 )
 
-                if (characterItem.species.isNotEmpty()) {
-                    Text(
-                        text = characterItem.species,
-                        color = MaterialTheme.colorScheme.onBackground,
-                        fontSize = dimensionResource(id = R.dimen.medium_font_size).value.sp
-                    )
-                }
+                Text(
+                    text = characterItem.species ?: "",
+                    color = MaterialTheme.colorScheme.onBackground,
+                    fontSize = dimensionResource(id = R.dimen.medium_font_size).value.sp
+                )
 
-                if (characterItem.actor.isNotEmpty()) {
-                    Text(
-                        text = characterItem.actor,
-                        fontStyle = FontStyle.Italic,
-                        fontSize = dimensionResource(id = R.dimen.small_font_size).value.sp,
-                        color = MaterialTheme.colorScheme.onBackground
-                        )
-                }
+                Text(
+                    text = characterItem.actor ?: "",
+                    fontStyle = FontStyle.Italic,
+                    fontSize = dimensionResource(id = R.dimen.small_font_size).value.sp,
+                    color = MaterialTheme.colorScheme.onBackground
+                )
 
                 Surface(
                     modifier = Modifier

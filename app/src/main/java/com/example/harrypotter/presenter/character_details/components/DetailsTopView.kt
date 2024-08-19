@@ -52,7 +52,7 @@ fun DetailsTopView(
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
                     .data(
-                        characterDetails.image.ifEmpty { R.drawable.harry_potter }
+                        characterDetails.image?.ifEmpty { R.drawable.harry_potter }
                     )
                     .placeholder(R.drawable.harry_potter)
                     .crossfade(true)
@@ -65,7 +65,7 @@ fun DetailsTopView(
             )
 
             Text(
-                text = characterDetails.name,
+                text = characterDetails.name?:"",
                 fontWeight = FontWeight.Bold,
                 fontSize = dimensionResource(id = R.dimen.large_font_size).value.sp,
                 color = MaterialTheme.colorScheme.onBackground
@@ -80,14 +80,14 @@ fun DetailsTopView(
             ) {
 
                 Text(
-                    text = characterDetails.actor,
+                    text = characterDetails.actor?:"",
                     fontStyle = FontStyle.Italic,
                     color = MaterialTheme.colorScheme.onSurface,
                     fontSize = dimensionResource(id = R.dimen.small_font_size).value.sp
                 )
 
                 Text(
-                    text = characterDetails.species,
+                    text = characterDetails.species?:"",
                     fontStyle = FontStyle.Italic,
                     color = MaterialTheme.colorScheme.onSurface,
                     fontSize = dimensionResource(id = R.dimen.small_font_size).value.sp

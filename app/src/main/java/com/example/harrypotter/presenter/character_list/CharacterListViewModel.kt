@@ -50,9 +50,13 @@ class CharacterListViewModel @Inject constructor(
     fun searchCharacterList(value: String): List<CharacterItem> {
 
         return if (_characterListState.value.characterList != null) {
-            _characterListState.value.characterList!!.filter {
-                it.actor.contains(value, ignoreCase = true) ||
-                        it.name.contains(value, ignoreCase = true)
+            try {
+                _characterListState.value.characterList!!.filter {
+                    it.actor!!.contains(value, ignoreCase = true) ||
+                            it.name!!.contains(value, ignoreCase = true)
+                }
+            } catch (e: Exception) {
+                emptyList()
             }
         } else {
             emptyList()

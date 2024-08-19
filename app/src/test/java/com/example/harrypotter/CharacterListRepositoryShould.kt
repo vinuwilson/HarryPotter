@@ -1,5 +1,6 @@
 package com.example.harrypotter
 
+import com.example.harrypotter.data.database.repository.DbCharacterListRepository
 import com.example.harrypotter.data.remote.dto.CharacterItem
 import com.example.harrypotter.data.remote.repository.CharacterListRepositoryImpl
 import com.example.harrypotter.data.remote.repository.RemoteCharacterListService
@@ -18,6 +19,7 @@ class CharacterListRepositoryShould : BaseUnitTest() {
 
     private lateinit var characterListRepository: CharacterListRepositoryImpl
     private val service: RemoteCharacterListService = mock()
+    private val dbCharacterListRepository: DbCharacterListRepository = mock()
     private val characterItem: List<CharacterItem> = mock()
     private val expected = Result.success(characterItem)
     private val exception = RuntimeException("Something went wrong")
@@ -46,7 +48,10 @@ class CharacterListRepositoryShould : BaseUnitTest() {
 
         mockFailureCase()
 
-        assertEquals(exception, characterListRepository.getCharacterList().first().exceptionOrNull())
+        assertEquals(
+            exception.message,
+            characterListRepository.getCharacterList().first().exceptionOrNull()!!.message
+        )
     }
 
     private suspend fun mockSuccessfulCase() {
@@ -56,7 +61,7 @@ class CharacterListRepositoryShould : BaseUnitTest() {
             }
         )
 
-        characterListRepository = CharacterListRepositoryImpl(service)
+        characterListRepository = CharacterListRepositoryImpl(service, dbCharacterListRepository)
     }
 
     private suspend fun mockFailureCase() {
@@ -66,6 +71,6 @@ class CharacterListRepositoryShould : BaseUnitTest() {
             }
         )
 
-        characterListRepository = CharacterListRepositoryImpl(service)
+        characterListRepository = CharacterListRepositoryImpl(service, dbCharacterListRepository)
     }
 }

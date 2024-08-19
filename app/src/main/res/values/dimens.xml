@@ -9,6 +9,7 @@
     <dimen name="small_font_size">12.sp</dimen>
     <dimen name="medium_font_size">15.sp</dimen>
     <dimen name="large_font_size">18.sp</dimen>
+    <dimen name="extra_large_font_size">25.sp</dimen>
     <dimen name="column_space">8.dp</dimen>
     <dimen name="small_circle_size">25.dp</dimen>
 </resources>

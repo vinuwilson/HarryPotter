@@ -15,6 +15,7 @@ import androidx.navigation.toRoute
 import com.example.harrypotter.presenter.character_details.CharacterDetailsScreen
 import com.example.harrypotter.presenter.character_list.CharacterListScreen
 import com.example.harrypotter.presenter.character_list.CharacterListViewModel
+import com.example.harrypotter.presenter.search.SearchScreen
 
 @Composable
 fun Navigation() {
@@ -30,7 +31,9 @@ fun Navigation() {
             CharacterListScreen(
                 navController = navController,
                 state = character
-            )
+            ) {
+                navController.navigate(SearchScreenView)
+            }
         }
 
         composable<CharacterDetails> { entry ->
@@ -45,6 +48,17 @@ fun Navigation() {
             if (characterDetails != null)
                 CharacterDetailsScreen(
                     characterDetails = characterDetails,
+                    navController = navController
+                )
+        }
+
+        composable<SearchScreenView> { entry ->
+            val viewModel =
+                entry.sharedViewModel<CharacterListViewModel>(navController = navController)
+            val state by viewModel.characterListState.collectAsStateWithLifecycle()
+
+            SearchScreen(
+                state = state,
                 navController = navController
             )
         }

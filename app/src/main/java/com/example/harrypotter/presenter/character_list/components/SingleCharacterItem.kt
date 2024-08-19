@@ -23,7 +23,6 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
@@ -91,7 +90,7 @@ fun SingleCharacterItem(
                     Text(
                         text = characterItem.species,
                         color = MaterialTheme.colorScheme.onBackground,
-                        fontSize = dimensionResource(id = R.dimen.medium_font_size).value.sp,
+                        fontSize = dimensionResource(id = R.dimen.medium_font_size).value.sp
                     )
                 }
 
@@ -100,8 +99,7 @@ fun SingleCharacterItem(
                         text = characterItem.actor,
                         fontStyle = FontStyle.Italic,
                         fontSize = dimensionResource(id = R.dimen.small_font_size).value.sp,
-                        color = MaterialTheme.colorScheme.onBackground,
-
+                        color = MaterialTheme.colorScheme.onBackground
                         )
                 }
 

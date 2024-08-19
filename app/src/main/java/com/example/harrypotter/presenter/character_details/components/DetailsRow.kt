@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.harrypotter.R
 
@@ -28,6 +29,7 @@ fun DetailsRow(
         Text(
             text = title,
             color = MaterialTheme.colorScheme.onBackground,
+            fontWeight = FontWeight.Bold,
             fontSize = dimensionResource(id = R.dimen.medium_font_size).value.sp
         )
         Text(

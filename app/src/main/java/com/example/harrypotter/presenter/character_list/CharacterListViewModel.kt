@@ -43,7 +43,19 @@ class CharacterListViewModel @Inject constructor(
         }
     }
 
-    suspend fun getAllCharacters() : Flow<Result<List<CharacterItem>>> {
-        return  getAllCharactersUseCase.getAllCharacterList()
+    suspend fun getAllCharacters(): Flow<Result<List<CharacterItem>>> {
+        return getAllCharactersUseCase.getAllCharacterList()
+    }
+
+    fun searchCharacterList(value: String): List<CharacterItem> {
+
+        return if (_characterListState.value.characterList != null) {
+            _characterListState.value.characterList!!.filter {
+                it.actor.contains(value, ignoreCase = true) ||
+                        it.name.contains(value, ignoreCase = true)
+            }
+        } else {
+            emptyList()
+        }
     }
 }

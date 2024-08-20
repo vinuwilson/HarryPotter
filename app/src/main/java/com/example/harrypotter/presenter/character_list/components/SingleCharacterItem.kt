@@ -1,6 +1,5 @@
 package com.example.harrypotter.presenter.character_list.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -16,18 +15,22 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.harrypotter.R
 import com.example.harrypotter.data.remote.dto.CharacterItem
+import com.example.harrypotter.data.remote.dto.Wand
 import com.example.harrypotter.ui.theme.gryffindor
 import com.example.harrypotter.ui.theme.hufflepuff
 import com.example.harrypotter.ui.theme.ravenclaw
@@ -43,7 +46,6 @@ fun SingleCharacterItem(
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .background(color = MaterialTheme.colorScheme.surface)
             .padding(dimensionResource(id = R.dimen.card_view_padding))
             .clickable { onItemClick(characterItem.id) },
         elevation = CardDefaults.elevatedCardElevation(dimensionResource(id = R.dimen.card_view_card_elevation)),
@@ -51,7 +53,8 @@ fun SingleCharacterItem(
     ) {
 
         Row(
-            horizontalArrangement = Arrangement.Center
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Surface(
                 modifier = Modifier
@@ -65,6 +68,7 @@ fun SingleCharacterItem(
                         .placeholder(R.drawable.harry_potter)
                         .crossfade(true)
                         .build(),
+                    error = painterResource(id = R.drawable.harry_potter),
                     contentDescription = stringResource(R.string.character_image),
                     modifier = Modifier
                         .fillMaxWidth()
@@ -114,4 +118,35 @@ fun SingleCharacterItem(
             }
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun SingleCharacterItemPreview() {
+    SingleCharacterItem(
+        characterItem =
+        CharacterItem(
+            actor = "Daniel Radcliffe",
+            alive = true,
+            alternate_actors = emptyList(),
+            alternate_names = emptyList(),
+            ancestry = "half-blood",
+            dateOfBirth = "31-07-1980",
+            eyeColour = "white",
+            gender = "male",
+            hairColour = "black",
+            hogwartsStaff = false,
+            hogwartsStudent = true,
+            house = "Gryffindor",
+            id = "1",
+            image = "https://ik.imagekit.io/hpapi/harry.jpg",
+            name = "Harry Potter",
+            patronus = "stag",
+            species = "human",
+            wand = Wand("phoenix tail feather", 11.0, "holly"),
+            wizard = true,
+            yearOfBirth = 1980
+        ),
+        onItemClick = {}
+    )
 }

@@ -19,6 +19,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
@@ -48,6 +49,9 @@ fun CharacterListScreen(
             TopAppBar(
                 scrollBehavior = scrollBehavior,
                 modifier = Modifier.padding(dimensionResource(id = R.dimen.default_app_padding)),
+                colors = TopAppBarDefaults.mediumTopAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.surface
+                ),
                 actions = {
                     IconButton(
                         onClick = {
@@ -99,13 +103,13 @@ fun CharacterListScreen(
                 }
             }
         } else {
-            Toast.makeText(
-                context,
-                "No internet connection...",
-                Toast.LENGTH_SHORT
-            ).show()
+            LaunchedEffect(Unit) {
+                Toast.makeText(
+                    context,
+                    "No internet connection...",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
-
     }
-
 }

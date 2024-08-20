@@ -12,4 +12,5 @@
     <dimen name="extra_large_font_size">25.sp</dimen>
     <dimen name="column_space">8.dp</dimen>
     <dimen name="small_circle_size">25.dp</dimen>
+    <dimen name="details_view_image_size">300.dp</dimen>
 </resources>

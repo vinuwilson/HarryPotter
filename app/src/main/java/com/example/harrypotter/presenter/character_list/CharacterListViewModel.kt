@@ -21,6 +21,9 @@ class CharacterListViewModel @Inject constructor(
     private val _characterListState = MutableStateFlow(CharacterListState())
     val characterListState = _characterListState.asStateFlow()
 
+    private val _singleCharacter = MutableStateFlow(CharacterListState())
+    val singleCharacter = _singleCharacter.asStateFlow()
+
     init {
         getAllCharacterList()
     }
@@ -60,6 +63,17 @@ class CharacterListViewModel @Inject constructor(
             }
         } else {
             emptyList()
+        }
+    }
+
+    fun getSingleCharacterDetails(characterId: String) {
+        val character = _characterListState.value.characterList?.filter {
+            it.id == characterId
+        }
+        _singleCharacter.update {
+            it.copy(
+                characterList = character
+            )
         }
     }
 }

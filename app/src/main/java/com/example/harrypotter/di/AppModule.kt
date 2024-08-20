@@ -52,7 +52,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideTypeConverters(gson: Gson) = Converters()
+    fun provideTypeConverters() = Converters()
 
     @Singleton
     @Provides

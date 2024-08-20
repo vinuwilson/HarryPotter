@@ -1,6 +1,9 @@
 package com.example.harrypotter.presenter.navigation
 
+import androidx.compose.animation.AnimatedContentTransitionScope
+import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -36,23 +39,45 @@ fun Navigation() {
             }
         }
 
-        composable<CharacterDetails> { entry ->
+        composable<CharacterDetails>(
+            enterTransition = {
+                return@composable slideIntoContainer(
+                    AnimatedContentTransitionScope.SlideDirection.Start, tween(700)
+                )
+            },
+            popExitTransition = {
+                return@composable slideOutOfContainer(
+                    AnimatedContentTransitionScope.SlideDirection.End, tween(700)
+                )
+            }
+        ) { entry ->
             val viewModel =
                 entry.sharedViewModel<CharacterListViewModel>(navController = navController)
             val state by viewModel.characterListState.collectAsStateWithLifecycle()
 
             val args = entry.toRoute<CharacterDetails>()
-            val characterDetails = state.characterList?.find {
-                it.id == args.characterId
+            LaunchedEffect(state) {
+                viewModel.getSingleCharacterDetails(args.characterId)
             }
-            if (characterDetails != null)
-                CharacterDetailsScreen(
-                    characterDetails = characterDetails,
-                    navController = navController
-                )
+
+            CharacterDetailsScreen(
+                viewModel = viewModel,
+                navController = navController
+            )
         }
 
-        composable<SearchScreenView> { entry ->
+        composable<SearchScreenView>(
+            enterTransition = {
+                return@composable slideIntoContainer(
+                    AnimatedContentTransitionScope.SlideDirection.Start, tween(700)
+                )
+            },
+            popExitTransition = {
+                return@composable slideOutOfContainer(
+                    AnimatedContentTransitionScope.SlideDirection.End, tween(700)
+                )
+            }
+        ) { entry ->
             val viewModel =
                 entry.sharedViewModel<CharacterListViewModel>(navController = navController)
             val state by viewModel.characterListState.collectAsStateWithLifecycle()

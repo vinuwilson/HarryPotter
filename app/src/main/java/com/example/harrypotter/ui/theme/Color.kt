@@ -11,10 +11,10 @@ val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
-val Card_dark_bg = Color(0xFF393A3A)
-val Card_light_bg = Color(0xFFEFF5F5)
-val On_Card_dark_bg = Color(0xFFB1B3B3)
-val On_Card_light_bg = Color(0xFF404141)
+val Card_dark_bg = Color(0xFF282B2B)
+val Card_light_bg = Color(0xFFe3f1fb)
+val On_Card_dark_bg = Color(0xFFA9B1B1)
+val On_Card_light_bg = Color(0xFF282929)
 
 //house colours
 val gryffindor100 = Color(0xFF740001)

@@ -6,15 +6,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.harrypotter.R
 import com.example.harrypotter.data.remote.dto.CharacterItem
+import com.example.harrypotter.data.remote.dto.Wand
 
 @Composable
 fun DetailsInfoSection(characterDetails: CharacterItem) {
@@ -49,3 +48,32 @@ fun DetailsInfoSection(characterDetails: CharacterItem) {
 }
 
 
+@Preview(showBackground = true)
+@Composable
+fun DetailsInfoSectionPreview() {
+    DetailsInfoSection(
+        characterDetails =
+        CharacterItem(
+            actor = "Daniel Radcliffe",
+            alive = true,
+            alternate_actors = emptyList(),
+            alternate_names = emptyList(),
+            ancestry = "half-blood",
+            dateOfBirth = "31-07-1980",
+            eyeColour = "white",
+            gender = "male",
+            hairColour = "black",
+            hogwartsStaff = false,
+            hogwartsStudent = true,
+            house = "Gryffindor",
+            id = "1",
+            image = "https://ik.imagekit.io/hpapi/harry.jpg",
+            name = "Harry Potter",
+            patronus = "stag",
+            species = "human",
+            wand = Wand("phoenix tail feather", 11.0, "holly"),
+            wizard = true,
+            yearOfBirth = 1980
+        )
+    )
+}

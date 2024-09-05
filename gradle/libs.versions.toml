@@ -7,7 +7,7 @@ junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.4"
 activityCompose = "1.9.1"
-composeBom = "2024.06.00"
+composeBom = "2024.08.00"
 retrofit = "2.9.0"
 converter-gson = "2.9.0"
 hilt-android = "2.49"
@@ -19,10 +19,11 @@ mockito-kotlin = "2.2.0"
 mockito-inline = "5.2.0"
 core-testing = "2.2.0"
 kotlinx-coroutines-test = "1.7.1"
-composeNavigation = "2.8.0-beta05"
+composeNavigation = "2.8.0-rc01"
 roomRuntime = "2.6.1"
 roomTesting = "2.6.1"
 serialization = "1.6.3"
+materialVersion = "1.7.0"
 #ksp = "1.9.22-1.0.17"
 
 [libraries]
@@ -56,6 +57,7 @@ kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomRuntime" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomRuntime" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
+androidx-material = { module = "androidx.compose.material:material", version.ref = "materialVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

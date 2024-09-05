@@ -28,24 +28,22 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import com.example.harrypotter.R
 import com.example.harrypotter.presenter.character_details.components.DetailsInfoSection
 import com.example.harrypotter.presenter.character_details.components.DetailsTopView
-import com.example.harrypotter.presenter.character_list.CharacterListViewModel
+import com.example.harrypotter.presenter.character_list.CharacterListState
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CharacterDetailsScreen(
     navController: NavHostController,
-    viewModel: CharacterListViewModel = hiltViewModel()
+    state: CharacterListState,
+    characterId: String
 ) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(rememberTopAppBarState())
 
-    val characterDetailsList =
-        viewModel.singleCharacter.collectAsStateWithLifecycle().value.characterList
+    val characterDetails = state.characterList?.takeIf { it.isNotEmpty() }?.firstOrNull { it.id == characterId }
 
     Box(
         modifier = Modifier
@@ -53,10 +51,9 @@ fun CharacterDetailsScreen(
             .background(MaterialTheme.colorScheme.background),
         contentAlignment = Alignment.Center
     ) {
-        if (characterDetailsList?.isEmpty() == true)
+        if (characterDetails == null)
             CircularProgressIndicator(color = MaterialTheme.colorScheme.onBackground)
         else {
-            val characterDetails = characterDetailsList?.first()!!
             Scaffold(
                 modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
                 topBar = {

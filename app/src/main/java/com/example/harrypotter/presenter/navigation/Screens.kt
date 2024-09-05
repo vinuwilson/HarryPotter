@@ -12,3 +12,6 @@ data class CharacterDetails(
 
 @Serializable
 object SearchScreenView
+
+@Serializable
+object CharacterInfo

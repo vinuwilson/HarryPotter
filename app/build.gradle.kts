@@ -87,6 +87,8 @@ dependencies {
     kapt(libs.androidx.room.compiler)
     implementation (libs.androidx.room.ktx)
 
+    implementation (libs.androidx.material)
+
     testImplementation(libs.junit)
     testImplementation(libs.mockito.kotlin)
     testImplementation(libs.mockito.inline)

@@ -12,8 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.harrypotter.R
-import com.example.harrypotter.data.remote.dto.CharacterItem
 import com.example.harrypotter.data.remote.dto.Wand
+import com.example.harrypotter.domain.model.CharacterItem
 
 @Composable
 fun DetailsInfoSection(characterDetails: CharacterItem) {
@@ -56,8 +56,8 @@ fun DetailsInfoSectionPreview() {
         CharacterItem(
             actor = "Daniel Radcliffe",
             alive = true,
-            alternate_actors = emptyList(),
-            alternate_names = emptyList(),
+            alternateActors = emptyList(),
+            alternateNames = emptyList(),
             ancestry = "half-blood",
             dateOfBirth = "31-07-1980",
             eyeColour = "white",

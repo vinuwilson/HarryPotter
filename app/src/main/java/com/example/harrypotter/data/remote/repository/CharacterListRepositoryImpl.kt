@@ -2,7 +2,7 @@ package com.example.harrypotter.data.remote.repository
 
 import android.util.Log
 import com.example.harrypotter.data.database.repository.DbCharacterListRepository
-import com.example.harrypotter.data.remote.dto.CharacterItem
+import com.example.harrypotter.domain.model.CharacterItem
 import com.example.harrypotter.domain.repository.CharacterListRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch

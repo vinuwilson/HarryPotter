@@ -1,7 +1,7 @@
 package com.example.harrypotter.data.database.repository
 
 import com.example.harrypotter.data.database.CharacterDao
-import com.example.harrypotter.data.remote.dto.CharacterItem
+import com.example.harrypotter.domain.model.CharacterItem
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

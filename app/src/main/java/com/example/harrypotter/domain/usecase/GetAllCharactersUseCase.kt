@@ -1,6 +1,6 @@
 package com.example.harrypotter.domain.usecase
 
-import com.example.harrypotter.data.remote.dto.CharacterItem
+import com.example.harrypotter.domain.model.CharacterItem
 import com.example.harrypotter.domain.repository.CharacterListRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

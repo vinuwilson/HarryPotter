@@ -7,8 +7,8 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.harrypotter.data.database.CharacterDao
 import com.example.harrypotter.data.database.CharacterListDatabase
 import com.example.harrypotter.data.database.Converters
-import com.example.harrypotter.data.remote.dto.CharacterItem
 import com.example.harrypotter.data.remote.dto.Wand
+import com.example.harrypotter.domain.model.CharacterItem
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
@@ -48,8 +48,8 @@ class CharactersDatabaseTest {
                 CharacterItem(
                     actor = "Daniel Radcliffe",
                     alive = true,
-                    alternate_actors = emptyList(),
-                    alternate_names = emptyList(),
+                    alternateActors = emptyList(),
+                    alternateNames = emptyList(),
                     ancestry = "half-blood",
                     dateOfBirth = "31-07-1980",
                     eyeColour = "white",

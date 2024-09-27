@@ -1,0 +1,52 @@
+package com.example.harrypotter.data.remote.dto
+
+import com.example.harrypotter.domain.model.CharacterItem
+
+data class CharacterItemDto(
+    val actor: String?,
+    val alive: Boolean?,
+    val alternate_actors: List<String>?,
+    val alternate_names: List<String>?,
+    val ancestry: String?,
+    val dateOfBirth: String?,
+    val eyeColour: String?,
+    val gender: String?,
+    val hairColour: String?,
+    val hogwartsStaff: Boolean?,
+    val hogwartsStudent: Boolean?,
+    val house: String?,
+    val id: String,
+    val image: String?,
+    val name: String?,
+    val patronus: String?,
+    val species: String?,
+    val wand: Wand?,
+    val wizard: Boolean?,
+    val yearOfBirth: Int?
+)
+
+
+fun CharacterItemDto.toCharacterModel(): CharacterItem {
+    return CharacterItem(
+        actor = actor,
+        alive = alive,
+        alternateActors = alternate_actors,
+        alternateNames = alternate_names,
+        ancestry = ancestry,
+        dateOfBirth = dateOfBirth?:"",
+        eyeColour = eyeColour,
+        gender = gender,
+        hairColour = hairColour,
+        hogwartsStaff = hogwartsStaff,
+        hogwartsStudent = hogwartsStudent,
+        house = house,
+        id = id,
+        image = image,
+        name = name,
+        patronus = patronus,
+        species = species,
+        wand = wand,
+        wizard = wizard,
+        yearOfBirth = yearOfBirth
+    )
+}

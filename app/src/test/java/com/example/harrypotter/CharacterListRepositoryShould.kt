@@ -1,9 +1,9 @@
 package com.example.harrypotter
 
 import com.example.harrypotter.data.database.repository.DbCharacterListRepository
-import com.example.harrypotter.data.remote.dto.CharacterItem
 import com.example.harrypotter.data.remote.repository.CharacterListRepositoryImpl
 import com.example.harrypotter.data.remote.repository.RemoteCharacterListService
+import com.example.harrypotter.domain.model.CharacterItem
 import com.example.harrypotter.utils.BaseUnitTest
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify

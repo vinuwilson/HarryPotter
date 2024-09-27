@@ -2,7 +2,7 @@ package com.example.harrypotter.presenter.character_list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.harrypotter.data.remote.dto.CharacterItem
+import com.example.harrypotter.domain.model.CharacterItem
 import com.example.harrypotter.domain.usecase.GetAllCharactersUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow

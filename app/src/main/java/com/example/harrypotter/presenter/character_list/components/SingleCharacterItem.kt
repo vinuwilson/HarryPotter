@@ -29,8 +29,8 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.harrypotter.R
-import com.example.harrypotter.data.remote.dto.CharacterItem
 import com.example.harrypotter.data.remote.dto.Wand
+import com.example.harrypotter.domain.model.CharacterItem
 import com.example.harrypotter.ui.theme.gryffindor
 import com.example.harrypotter.ui.theme.hufflepuff
 import com.example.harrypotter.ui.theme.ravenclaw
@@ -128,8 +128,8 @@ fun SingleCharacterItemPreview() {
         CharacterItem(
             actor = "Daniel Radcliffe",
             alive = true,
-            alternate_actors = emptyList(),
-            alternate_names = emptyList(),
+            alternateActors = emptyList(),
+            alternateNames = emptyList(),
             ancestry = "half-blood",
             dateOfBirth = "31-07-1980",
             eyeColour = "white",

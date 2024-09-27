@@ -1,6 +1,6 @@
 package com.example.harrypotter.domain.repository
 
-import com.example.harrypotter.data.remote.dto.CharacterItem
+import com.example.harrypotter.domain.model.CharacterItem
 import kotlinx.coroutines.flow.Flow
 
 interface CharacterListRepository {

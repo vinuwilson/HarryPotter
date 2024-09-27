@@ -1,14 +1,15 @@
-package com.example.harrypotter.data.remote.dto
+package com.example.harrypotter.domain.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.harrypotter.data.remote.dto.Wand
 
 @Entity(tableName = "character_tbl")
 data class CharacterItem(
     val actor: String?,
     val alive: Boolean?,
-    val alternate_actors: List<String>?,
-    val alternate_names: List<String>?,
+    val alternateActors: List<String>?,
+    val alternateNames: List<String>?,
     val ancestry: String?,
     val dateOfBirth: String?,
     val eyeColour: String?,
